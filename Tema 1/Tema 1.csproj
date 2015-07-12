@@ -103,7 +103,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="cvextern.dll" />
-    <Content Include="nps109.mp4" />
     <Content Include="opencv_calib3d220.dll">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>

@@ -18,27 +18,26 @@ namespace Tema_1
 {
     public partial class Form1 : Form
     {
-        private Capture capture;  //variable here
-
+        Image<Bgr, Byte> im;
+        Capture cap;
         public Form1()
         {
             InitializeComponent();
-            capture = new Capture(0);
+            cap = new Capture(); // conexión con la primera cámara
+            // o cap = new Capture(0); -- idéntico al anterior
+            // o cap = new Capture(“miVideo.avi”); -- carga un vídeo
         }
-
-        
 
         private void button1_Click(object sender, EventArgs e)
         {
-            timer1.Enabled = !(timer1.Enabled); // toggle start/stop
-        }
-
-        private void timer1_Tick(object sender, EventArgs e)
+            im = cap.QueryFrame();
+            // im = cap.RetieveBgrFrame(); -- EmguCV 2.4 en adelante
+            imageBox1.Image = im;
+        }
+        private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
-            using (Image nextFrame = capture.QueryFrame().ToBitmap())
-            {
-                pictureBox1.Image = nextFrame;
-            }
+           
+            cap.Dispose(); 
         }
     }
 }

@@ -33,7 +33,8 @@ namespace Tema_1
             im = cap.QueryFrame();
             // im = cap.RetieveBgrFrame(); -- EmguCV 2.4 en adelante
             imageBox1.Image = im;
-        }
+        }
+
         private void Form1_FormClosed(object sender, FormClosedEventArgs e)
         {
            
